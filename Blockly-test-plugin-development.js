@@ -7,6 +7,7 @@ addMenuOption('import.svg', 'Debug Plugin', function() {
   document.getElementById('plugin_debug_run_button').addEventListener('click', function() {
     localStorage.setItem('plugin_DEBUG_code', edit.getValue())
     eval(edit.getValue())
+    refreshBlockly()
   })
   new AceScrollbars(edit)
   edit.setTheme("ace/theme/monokai0")
