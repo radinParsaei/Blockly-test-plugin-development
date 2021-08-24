@@ -7,7 +7,36 @@ addMenuOption('import.svg', 'Debug Plugin', function() {
   document.getElementById('plugin_debug_run_button').addEventListener('click', function() {
     localStorage.setItem('plugin_DEBUG_code', edit.getValue())
     eval(edit.getValue())
-    refreshBlockly()
+    Editor._resetTranslations()
+    document.getElementById('menu').innerHTML = `<span class="label" style="font-size: 75%;position: absolute;">Dark Mode</span>
+<label class="switch" style="margin-top: 16px">
+<input type="checkbox" id="theme" onchange="changeTheme2()">
+<span class="slider round"></span>
+</label>
+<span id="modeContainer">
+<button id="gotoblock" class="mode" onclick="goToBlock()">Blocks</button>
+<button id="gotocode" class="selected mode" onclick="goToCode()">Code</button>`
+    if (Editor.isDark()) {
+      document.getElementById('theme').checked = true
+    }
+    addButtons()
+    Blockly.Extensions.unregister('text_indexOf_mutator')
+    Blockly.Extensions.unregister('create_instance_mutator')
+    Editor.setBlocksEditorGrid({
+      spacing : 20,
+      length : 2,
+      colour : localStorage.getItem('theme') == 'dark'? 'rgba(255, 255, 255, 0.12)':'rgba(150, 150, 150, 0.3)',
+      snap : true
+    })
+    Editor.resetThemes()
+    populateDefaultBlocks()
+    initBlocks()
+    setTimeout(function() {
+      Object.keys(localStorage).map((pluginName) => {
+        if (pluginName.startsWith('plugin_') && pluginName.endsWith('_code')) eval(localStorage.getItem(pluginName))
+      })
+      refreshBlockly()
+    }, 100)
   })
   new AceScrollbars(edit)
   edit.setTheme("ace/theme/monokai0")

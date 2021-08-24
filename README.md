@@ -35,3 +35,21 @@ or:
 Editor.setBlocksEditorGrid(undefined)
 ```
 This can be used to remove grid
+### Editor.setEditorColor(color)
+```javascript
+Editor.setEditorColor('#f55')
+```
+will result something like:
+![editor color is changed to #f55](images/editor-color.jpg)
+### Editor.setTheme(theme(`'dark'` or `'light'`)
+```javascript
+Editor.setTheme('dark')
+```
+Darkens the editor
+### Editor.changeTheme()
+Switches between light and dark editor themes
+### Editor.setEditorCancelColor(color)
+```javascript
+Editor.setEditorCancelColor('red')
+```
+![cancel button color turned red](images/cancel.jpg)
