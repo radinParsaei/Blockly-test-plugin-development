@@ -6,7 +6,6 @@ addMenuOption('import.svg', 'Debug Plugin', function() {
   edit.session.selection.moveTo(0, 0)
   document.getElementById('plugin_debug_run_button').addEventListener('click', function() {
     localStorage.setItem('plugin_DEBUG_code', edit.getValue())
-    eval(edit.getValue())
     Editor._resetTranslations()
     document.getElementById('menu').innerHTML = `<span class="label" style="font-size: 75%;position: absolute;">Dark Mode</span>
 <label class="switch" style="margin-top: 16px">
