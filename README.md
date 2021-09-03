@@ -53,3 +53,27 @@ Switches between light and dark editor themes
 Editor.setEditorCancelColor('red')
 ```
 ![cancel button color turned red](images/cancel.jpg)
+### Editor.addButton(category, 'text', callback)
+```javascript
+Editor.addButton('Logic', 'show alert', function() {alert("Hello")})
+```
+![show alert button in logic category](images/button.jpg)
+### `Editor.getAceEditor()`, `Editor.getBlockly()`, `Editor.getSwal()`
+Access Blocky, Ace Editor, and Swal (sweet alert) objects directly
+It's much better to use these functions because if someday some of these libraries changed, your plugin just won't execute instead of making mess in editor or making big errors
+### Editor.getCode()
+get content of text editor
+### Editor.isRTL, Editor.setBlocksEditorRTL
+check if editor is RTL or not and setBlocksEditorRTL to set editor direction
+### Editor.registerSnippet
+```javascript
+Editor.registerSnippet([{'name': 'snippetName', 'code': '// code here'}])
+```
+### Editor.setFont('arial')
+set editor font
+### Editor.setFonts('arial')
+set all of the fonts
+### Editor.setToolBoxFont('arial')
+set toolbox font
+### Editor.setBlocksFont('arial')
+set blocks font
