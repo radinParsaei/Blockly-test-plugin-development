@@ -77,3 +77,36 @@ set all of the fonts
 set toolbox font
 ### Editor.setBlocksFont('arial')
 set blocks font
+### Editor.setTextEditorColorDark(type, color)
+```javascript
+Editor.setTextEditorColorDark('keyword', '#f55')
+// change keywords color(for example: var if else) 
+Editor.setTextEditorColorDark('gutter-background', '#333')
+// change gutter background color
+Editor.setTextEditorColorDark('gutter-color', 'green')
+// change gutter line numbers color
+Editor.setTextEditorColorDark('background', 'black')
+// change editor background color
+Editor.setTextEditorColorDark('active-gutter-color', 'cyan')
+// change active gutter line numbers color
+Editor.setTextEditorColorDark('active-gutter-background', 'gray')
+// change background color of active gutter
+Editor.setTextEditorColorDark('number', '#1feab0')
+// change color of numbers in the editor
+Editor.setTextEditorColorDark('bool', '#1fb0ea')
+// change color of booleans in the editor(true and false)
+Editor.setTextEditorColorDark('predefined', 'pink')
+// change color of predefined names(for example: print, append)
+Editor.setTextEditorColorDark('string', 'orange')
+// change color of string literals
+Editor.setTextEditorColorDark('activehint', 'green')
+// change color of active hint (in autocomplete suggestions)
+Editor.setTextEditorColorDark('hinthover', '#44ff7755')
+// change hint hover color
+```
+### Editor.setCategoryColor(category, color)
+change color of category
+```javascript
+Editor.setCategoryColor('Console', 'red')
+```
+### 
