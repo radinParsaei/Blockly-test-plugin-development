@@ -55,6 +55,38 @@ addMenuOption('import.svg', 'Debug Plugin', function() {
       cursorStyle: 'smooth',
       fadeFoldWidgets: true
   })
+  const createSnippets = snippets =>
+      (Array.isArray(snippets) ? snippets : [snippets])
+          .map(({ name, code }) =>
+              [
+                  'snippet ' + name,
+                  code
+                      .split('\n')
+                      .map(c => '\t' + c)
+                      .join('\n'),
+              ].join('\n')
+          )
+          .join('\n')
+    edit.setOptions({
+        enableBasicAutocompletion: true,
+        enableSnippets: true,
+    })
+    setTimeout(function() {
+      var snippetManager = ace.require('ace/snippets').snippetManager
+      console.log(edit.session.$mode.$id)
+      var m = snippetManager.files['ace/mode/javascript0']
+      console.log(snippetManager.files)
+      m.scope = 'javascript0'
+      let snippetText = createSnippets([{'name': 'set all fonts', 'code': 'Editor.setFonts(${0:\'Source Code Pro\'})'},
+            {'name': 'add on code executed event', 'code': "Editor.addOnCodeExecutedEvent(function() {\n\talert('code is going to execute!')\n})"}, 
+            {'name': 'is a plugin installed', 'code': 'Editor.isPluginInstalled(${0:pluginName})'},
+            {'name': 'is dark', 'code': 'Editor.isDark()'},
+            {'name': 'require a plugin', 'code': 'Editor.requirePlugin(${0:pluginName})'},
+            {'name': 'set blocks editor grid', 'code': "Editor.setBlocksEditorGrid({\n\tspacing : ${1:35},\n\tlength : ${2:9},\n\tcolor : ${3:'gray'},\n\tsnap : ${4:true}\n})"}])
+      m.snippetText = snippetText
+      m.snippet = snippetManager.parseSnippetFile(snippetText, m.scope)
+      snippetManager.register(m.snippet, m.scope)
+    }, 100)
 }, 'pkgdbg')
 
 injectCss(`.menuitem#pkgdbg {
