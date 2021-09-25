@@ -93,7 +93,17 @@ addMenuOption('import.svg', 'Debug Plugin', function() {
             {'name': 'get code', 'code': "Editor.getCode()"},
             {'name': 'is RTL', 'code': "Editor.isRTL"},
             {'name': 'set direction (rtl, ltr)', 'code': "Editor.setBlocksEditorRTL(${0:false})"},
-            {'name': 'change theme(toggle)', 'code': "Editor.changeTheme()"}])
+            {'name': 'register snippet', 'code': "Editor.registerSnippet(${0:[{'name': 'snippetName', 'code': '// code here'}]}s)"},
+            {'name': 'set editor font', 'code': "Editor.setFont(${0:'Source Code Pro'})"},
+            {'name': 'set all fonts', 'code': "Editor.setFonts(${0:'Source Code Pro'})"},
+            {'name': 'set toolbox font', 'code': "Editor.setToolBoxFont('Source Code Pro')"},
+            {'name': 'set blocks font', 'code': "Editor.setBlocksFont('Source Code Pro')"},
+            {'name': 'set text editor color', 'code': "Editor.setTextEditorColor(${0:type}, ${1:'color'})"},
+            {'name': 'set text editor color for dark theme', 'code': "Editor.setTextEditorColorDark(${0:type}, ${1:'color'})"},
+            {'name': 'set text editor color for light theme', 'code': "Editor.setTextEditorColorLight(${0:type}, ${1:'color'})"},
+            {'name': 'set category color', 'code': "Editor.setCategoryColor(${0:category}, ${1:color})"},
+            {'name': 'change theme(toggle)', 'code': "Editor.changeTheme()"},
+            {'name': 'change view(toggle)', 'code': "Editor.changeView()"}])
       m.snippetText = snippetText
       m.snippet = snippetManager.parseSnippetFile(snippetText, m.scope)
       snippetManager.register(m.snippet, m.scope)

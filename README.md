@@ -1,3 +1,4 @@
+
 # Plugin development
 
 ### Editor.addOnCodeExecutedEvent(callback)
@@ -77,7 +78,8 @@ set all of the fonts
 set toolbox font
 ### Editor.setBlocksFont('arial')
 set blocks font
-### Editor.setTextEditorColorDark(type, color)
+### Editor.setTextEditorColorDark(type, color), Editor.setTextEditorColorLight(type, color), Editor.setTextEditorColor(type, color)
+set color of text highlighting in light, dark, or both themes
 ```javascript
 Editor.setTextEditorColorDark('keyword', '#f55')
 // change keywords color(for example: var if else) 
@@ -109,4 +111,3 @@ change color of category
 ```javascript
 Editor.setCategoryColor('Console', 'red')
 ```
-### 
