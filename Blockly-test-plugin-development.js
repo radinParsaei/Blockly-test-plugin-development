@@ -1,3 +1,5 @@
+//ver=0 beta
+
 addMenuOption('import.svg', 'Debug Plugin', function() {
   const popup = createPopUpBody(openPopUp())
   popup.innerHTML = '<div id="plugin_debug_editor" class="expand"></div><button class="swal2-confirm swal2-styled" style="margin-left: -2px" id="plugin_debug_run_button">Run</button>'

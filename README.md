@@ -1,6 +1,8 @@
 
 # Plugin development
 
+Note: put a //ver=`<anything>` in someplace in the code of your plugin that would help the editor to show an "Update" button if it is necessary
+
 ### Editor.addOnCodeExecutedEvent(callback)
 ```javascript
 Editor.addOnCodeExecutedEvent(function() {
