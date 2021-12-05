@@ -8,6 +8,9 @@ addMenuOption('import.svg', 'Debug Plugin', function() {
     edit.setValue(localStorage.getItem('plugin_DEBUG_code') || '')
     edit.session.selection.moveTo(0, 0)
     document.getElementById('plugin_debug_run_button').addEventListener('click', function() {
+      for (let i of Object.keys(Editor._langs)) {
+        delete Editor._langs[i]
+      }
       localStorage.setItem('plugin_DEBUG_code', edit.getValue())
       Editor._resetTranslations()
       document.getElementById('menu').innerHTML = `<span class="label" style="font-size: 75%;position: absolute;">Dark Mode</span>
@@ -16,8 +19,8 @@ addMenuOption('import.svg', 'Debug Plugin', function() {
       <span class="slider round"></span>
     </label>
     <span id="modeContainer">
-      <button id="gotoblock" class="mode" onclick="goToBlock()">Blocks</button>
-      <button id="gotocode" class="selected mode" onclick="goToCode()">Code</button>
+    <button id="gotoblock" class="${localStorage['mode'] == 'block'? "selected":""} mode" onclick="goToBlock()">Blocks</button>
+    <button id="gotocode" class="${localStorage['mode'] == 'code'? "selected":""} mode" onclick="goToCode()">Code</button>
       <select onchange="Editor._changeLang()" id="langs" style="margin-right: 10px; background: none; border: none; user-select: none; outline: none;">
         <option value="0">Default</option>
       </select>
